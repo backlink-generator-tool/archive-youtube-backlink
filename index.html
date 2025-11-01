@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://backlink-generator-tool.github.io/archive-youtube-backlink/styles.css" />
+</head>
+<body>
 
+  <div class="wrap">
+    <header>
+      <h1>Archive YouTube Video Backlink</h1>
+      <p>Paste a YouTube link or ID → generate backlink URLs → archive via Wayback and a random archive.today TLD per backlink. Modes: IFrame (default), Popup, Tab.</p>
+    </header>
+
+    <section class="card" id="app">
+      <div class="toolbar" role="group" aria-label="Main controls">
+        <input id="videoInput" type="text" placeholder="Paste YouTube link or video ID…" aria-label="YouTube link or video ID"/>
+        <button id="startStopBtn" class="btn" aria-pressed="false">Start</button>
+        <button id="toggleAdvancedBtn" class="btn" aria-expanded="false" aria-controls="advancedPanel">⚙️ Advanced ▼</button>
+      </div>
+
+      <div id="advancedPanel" aria-hidden="true">
+        <label for="modeSelect">
+          Mode:
+          <select id="modeSelect" aria-label="Run mode">
+            <option value="iframe">IFrame (visible grid)</option>
+            <option value="popup">Popup (new windows)</option>
+            <option value="tab">Tab (new tabs)</option>
+          </select>
+        </label>
+
+        <label for="reuseToggle" id="reuseLabel">
+          Popup/Tab behavior:
+          <select id="reuseToggle" aria-label="Popup/Tab reuse behavior">
+            <option value="fresh">Open → goto → wait → close</option>
+            <option value="reuse">Reuse same window/tab</option>
+          </select>
+        </label>
+
+        <label for="concurrencyRange">
+          Max Concurrent (slots):
+          <div>
+            <input id="concurrencyRange" type="range" min="1" max="12" value="4" aria-label="Concurrent slots"/>
+            <span class="inline-num" id="concurrencyCount">4</span>
+          </div>
+        </label>
+
+        <!-- Archive targets -->
+        <label>
+          Archive targets:
+          <div>
+            <label style="display:inline-flex;align-items:center;gap:.5rem;">
+              <input type="checkbox" id="targetWayback" checked/>
+              Wayback Machine (web.archive.org/save)
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:.5rem;margin-left:1rem;">
+              <input type="checkbox" id="targetArchiveToday" checked/>
+              archive.today (.today/.li/.vn/.fo/.md/.ph/.is)
+            </label>
+          </div>
+        </label>
+
+        <label for="rerunCheckbox"><div><input type="checkbox" id="rerunCheckbox" aria-label="Repeat after completion"/> Repeat after completion</div></label>
+        <label for="shuffleCheckbox"><div><input type="checkbox" id="shuffleCheckbox" checked aria-label="Shuffle templates before run"/> Shuffle templates before run</div></label>
+        <p class="hint">If using <strong>Popup/Tab</strong>, allow pop-ups for this site. “Reuse” is disabled for IFrame, enabled for Popup/Tab.</p>
+      </div>
+
+      <div class="share" aria-live="polite">
+        <input id="shareUrl" readonly placeholder="Shareable URL appears here…"/>
+        <button id="copyBtn" class="btn" type="button">Copy</button>
+      </div>
+
+      <div class="progress" aria-live="polite">
+        <div class="bar-wrap"><div id="progressBar"></div></div>
+        <div id="progressText">0/0 (0%)</div>
+      </div>
+
+      <div id="iframeGrid" aria-live="polite" aria-label="IFrame slots grid"></div>
+      <ul id="results" aria-live="polite" aria-label="Archive attempts"></ul>
+
+      <div class="actions">
+        <button id="downloadBtn" class="btn" type="button">Download YouTube backlinks</button>
+      </div>
+      <p class="hint">Download contains the original backlink URLs (one per line), in the same order used for this run.</p>
+    </section>
+  </div>
+
+    <--  -->
+    <script src="https://backlink-generator-tool.github.io/archive-youtube-backlink/archive-youtube-backlink.js"></script>
+</body>
+</html>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
