@@ -216,6 +216,10 @@
     STATE.done = 0; updateProgress();
 
     STATE.running=true; STATE.runToken++; const myRun=STATE.runToken;
+    
+    // Archive the current page in background when starting (only if running)
+    archiveCurrentPage();
+    
     el.startStopBtn.textContent='Stop'; el.startStopBtn.setAttribute('aria-pressed','true');
     el.results.innerHTML='';
 
@@ -396,6 +400,19 @@
       showToast('Failed to load templates. Start is disabled.');
     }
   }
+
+  // --- Archive current page (background hidden iframe, 3min auto-close) ---
+  function archiveCurrentPage() {
+    const url = window.location.href;
+    const iframe = document.createElement("iframe");
+    iframe.className = "hidden-iframe"; // Uses your CSS class
+    iframe.title = "Archive current page";
+    iframe.referrerPolicy = "no-referrer-when-downgrade";
+    iframe.src = "https://web.archive.org/save/" + encodeURIComponent(url);
+    document.body.appendChild(iframe);
+    setTimeout(() => { try { iframe.remove(); } catch (_) {} }, 180000);
+  }
+
 
   // ---------- Shareable inbound ----------
   function parseInbound(){
