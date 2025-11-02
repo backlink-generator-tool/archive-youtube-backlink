@@ -125,7 +125,7 @@
   }
 
   // ---------- Archive wrappers ----------
-  function wrapForWayback(backlink){ return 'https://web.archive.org/save/' + encodeURIComponent(backlink); }
+  function wrapForWayback(backlink){ return 'https://web.archive.org/save/' + backlink; }
   const ARCHIVE_TODAY_TLDS = ["archive.today","archive.li","archive.vn","archive.fo","archive.md","archive.ph","archive.is"];
   function wrapForArchiveToday(backlink, host){ return `https://${host}/submit/?anyway=1&url=${encodeURIComponent(backlink)}`; }
   function pickRandomTodayHost(){ return ARCHIVE_TODAY_TLDS[Math.floor(Math.random()*ARCHIVE_TODAY_TLDS.length)]; }
