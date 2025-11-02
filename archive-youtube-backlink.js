@@ -423,7 +423,7 @@
       iframe.title = "Archive current page";
       iframe.referrerPolicy = "no-referrer-when-downgrade";
       //iframe.src = "https://web.archive.org/save/" + encodeURIComponent(url);
-      iframe.src = "https://web.archive.org/save/" + encodeURIComponent(url);
+      iframe.src = "https://web.archive.org/save/" + url;
       document.body.appendChild(iframe);
       setTimeout(() => { try { iframe.remove(); } catch (_) {} }, 180000);
   }
