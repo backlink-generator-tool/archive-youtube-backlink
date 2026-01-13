@@ -482,7 +482,7 @@
 
     //iframe.className = "hidden-iframe";
    
-    /*
+    /**/
     // Apply inline styles (completely invisible but functional)
     Object.assign(iframe.style, {
       position: "fixed",
@@ -495,7 +495,8 @@
       pointerEvents: "none",
       zIndex: "-1"
     });
-    */
+    /**/
+    
 
     // Build Wayback Save URL
     //const waybackUrl = "https://web.archive.org/save/" + encodeURIComponent(url);
