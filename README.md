@@ -30,4 +30,4 @@ Everything runs **client-side** (Vanilla JS). No server, no build step.
 ## 🌐 Live Demo
 
 Try the online tool here:  
-- 🔗 [Live Demo]([https://backlink-generator-tool.github.io/backlink-generator-tool/demo/advanced-anchor-text-and-backlink-tool.html](https://backlink-generator-tool.github.io/archive-youtube-backlink/index.html)
+- 🔗 [Live Demo](https://backlink-generator-tool.github.io/archive-youtube-backlink/index.html)
