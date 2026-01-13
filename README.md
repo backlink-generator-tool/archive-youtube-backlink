@@ -10,6 +10,13 @@ Everything runs **client-side** (Vanilla JS). No server, no build step.
 
 ---
 
+## 🌐 Live Demo
+
+Try the online tool here:  
+- 🔗 [Live Demo - /index.html](https://backlink-generator-tool.github.io/archive-youtube-backlink/index.html)
+
+---
+
 ## Features
 
 - **Paste YouTube URL or 11-char video ID** → auto-extract ID → canonicalise to `https://www.youtube.com/watch?v=ID`
@@ -24,10 +31,3 @@ Everything runs **client-side** (Vanilla JS). No server, no build step.
 - **Download backlinks** — one-per-line `.txt` of original backlink URLs (not the archive wrappers)
 - **Persisted settings** — saved in `localStorage`
 - **Mobile-friendly**, keyboard accessible UI
-
----
-
-## 🌐 Live Demo
-
-Try the online tool here:  
-- 🔗 [Live Demo](https://backlink-generator-tool.github.io/archive-youtube-backlink/index.html)
